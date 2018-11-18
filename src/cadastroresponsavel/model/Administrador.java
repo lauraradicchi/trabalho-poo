@@ -5,7 +5,7 @@ public class Administrador{
   public Administrador(){
 
   }
-  private String email;
+  private String prontuario;
   private String senha;
 
   public String getSenha(){
@@ -14,10 +14,10 @@ public class Administrador{
   public void setSenha(String senha){
     this.senha=senha;
   }
-  public String getEmail(){
-    return email;
+  public String getProntuario(){
+    return prontuario;
   }
-  public void setEmail(String email){
-    this.emai= email;
+  public void setProntuario(String prontuario){
+    this.prontuario= prontuario;
   }
 }
