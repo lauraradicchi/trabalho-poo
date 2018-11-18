@@ -9,14 +9,21 @@ import java.util.*;
 
 
 public class ResponsavelDAO{
+    private ConnectionFactory cf = new ConnectionFactory();
+    private PreparedStatement stm = null;
+    private ResultSet rs = null;  
+    private Connection con = null;
+
+    public ResponsavelDAO() {
+    }
+    
   public void inserir(Responsavel rp){
     try{
-      ConnectionFactory cf = new ConnectionFactory();
-      Connection con = cf.obterConexao();
-      PreparedStatement stm = con.prepareStatement("INSERT INTO responsavel (nomeResponsavel,telefoneResponsavel,dataNascimento) VALUES (?,?,?)");
+      con = cf.obterConexao();
+      stm = con.prepareStatement("INSERT INTO responsavel (nomeResponsavel,dataNascimento,telefoneResponsavel) VALUES (?,?,?)");
       stm.setString(1,rp.getNomeResponsavel());
-      stm.setString(2,rp.getTelefoneResponsavel());
-      stm.setString(3,rp.getDataNasc());
+      stm.setString(2,rp.getDataNasc());
+      stm.setString(3,rp.getTelefoneResponsavel());
       stm.executeUpdate();
     }catch(Exception e){
       e.printStackTrace();
