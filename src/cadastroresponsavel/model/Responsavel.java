@@ -1,3 +1,4 @@
+package cadastroresponsavel.model;
 import java.util.*;
 
 
@@ -18,7 +19,7 @@ public class Responsavel{
     public String getNomeResponsavel(){
       return nomeResponsavel;
     }
-    public void setNomeResponsável(){
-      
+    public void setNomeResponsável(String telefoneResponsavel){
+      this.telefoneResponsavel=telefoneResponsavel;
     }
 }
