@@ -13,7 +13,7 @@ public class ResponsavelDAO{
     try{
       ConnectionFactory cf = new ConnectionFactory();
       Connection con = cf.obterConexao();
-      PreparedStatement stm = con.preparedStatement("INSERT INTO responsavel (nomeResponsavel,telefoneResponsavel) VALUES (?,?)");
+      PreparedStatement stm = con.prepareStatement("INSERT INTO responsavel (nomeResponsavel,telefoneResponsavel) VALUES (?,?)");
       stm.setString(1,rp.getNomeResponsavel());
       stm.setString(2,rp.getTelefoneResponsavel());
       stm.executeUpdate();

@@ -1,6 +1,7 @@
 package cadastroresponsavel.bd;
 import java.sql.Connection;
-import java.sql.DriveManager;
+
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -13,7 +14,7 @@ public class ConnectionFactory{
     if(con==null){
       try{
         Class.forName("com.mysql.jdbc.Driver");
-        con=DriveManager.getConnection("jdbc:mysql://localhost/registroresponsavel?user=root");
+        con=DriverManager.getConnection("jdbc:mysql://localhost/registroresponsavel?user=root");
       }catch(ClassNotFoundException cnfe){
         System.out.println("Erro: classe não encontrada");
       }catch(SQLException sqle){
