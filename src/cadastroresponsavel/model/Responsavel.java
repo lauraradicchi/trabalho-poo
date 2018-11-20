@@ -1,5 +1,5 @@
 package cadastroresponsavel.model;
-import java.util.*;
+
 
 
 
@@ -8,8 +8,25 @@ public class Responsavel{
 
     }
     private String nomeResponsavel;
+     private String dataNasc; 
     private String telefoneResponsavel;
-    private String dataNasc; 
+   
+
+    public String getNomeResponsavel() {
+        return nomeResponsavel;
+    }
+
+    public void setNomeResponsavel(String nomeResponsavel) {
+        this.nomeResponsavel = nomeResponsavel;
+    }
+
+    public String getTelefoneResponsavel() {
+        return telefoneResponsavel;
+    }
+
+    public void setTelefoneResponsavel(String telefoneResponsavel) {
+        this.telefoneResponsavel = telefoneResponsavel;
+    }
 
     public String getDataNasc() {
         return dataNasc;
@@ -18,17 +35,6 @@ public class Responsavel{
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
-
-    public String getTelefoneResponsavel(){
-      return telefoneResponsavel;
-    }
-    public void setTelefoneResponsavel(String telefoneResponsavel){
-      this.telefoneResponsavel=telefoneResponsavel;
-    }
-    public String getNomeResponsavel(){
-      return nomeResponsavel;
-    }
-    public void setNomeResponsavel(String telefoneResponsavel){
-      this.telefoneResponsavel=telefoneResponsavel;
-    }
+    
 }
+    

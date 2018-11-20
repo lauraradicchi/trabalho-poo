@@ -5,11 +5,13 @@ import cadastroresponsavel.model.Responsavel;
 
 
 public class ResponsavelController{
-  private ResponsavelDAO dao= new ResponsavelDAO();
-  public ResponsavelController(){
-
-  }
-  public void cadastrarResponsavel(Responsavel rp){
-    dao.inserir(rp);
+  
+    private ResponsavelDAO dao= new ResponsavelDAO();
+  
+    public ResponsavelController(){
+    }
+  
+    public void cadastrarResponsavel(Responsavel rp){
+        dao.inserir(rp);
   }
 }

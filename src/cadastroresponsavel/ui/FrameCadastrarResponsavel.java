@@ -6,6 +6,7 @@
 package cadastroresponsavel.ui;
 import cadastroresponsavel.controller.ResponsavelController;
 import cadastroresponsavel.model.Responsavel;
+import java.io.PrintStream;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,13 +163,14 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-       Responsavel rp= new Responsavel ();
+       Responsavel rp= new Responsavel();
        rp.setNomeResponsavel(tfNome.getText());
        rp.setDataNasc(tfDataNascimento.getText());
        rp.setTelefoneResponsavel(tfTelefone.getText());
        ResponsavelController rc = new ResponsavelController();
        rc.cadastrarResponsavel(rp);
       JOptionPane.showMessageDialog(rootPane,"Responsável cadastrado com sucesso");
+        
         limpar();       
     }//GEN-LAST:event_btInserirActionPerformed
 
