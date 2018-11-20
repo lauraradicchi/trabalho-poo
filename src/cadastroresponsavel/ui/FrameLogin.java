@@ -5,13 +5,16 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.controller.UsuarioController;
+import cadastroresponsavel.model.Usuario;
+import java.util.List;
 import javax.swing.*;
 /**
  *
  * @author Andre
  */
 public class FrameLogin extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form FrameLogin
      */
@@ -126,9 +129,17 @@ public class FrameLogin extends javax.swing.JFrame {
         // e verificar se a senha fornecida coincide com a senha no banco
         // se coincidir, a variavel loginSenhaCorreta deve ter o valor true
         // senao, deve ter o valor false
-        boolean loginSenhaCorreta = true;
+        Usuario usuario = new Usuario();
+        UsuarioController uController = new UsuarioController();
+        usuario.setProntuario(tfProntuario.getText());
+        String senha = new String(tfSenha.getPassword());
+        usuario.setSenha(senha);
         
-        if(loginSenhaCorreta) {
+        
+        boolean loginSenhaCorreta= uController.login(usuario);
+        
+        
+        if(loginSenhaCorreta==true) {
             JFrame aplicacao = new FrameCadastroResponsaveis();
             aplicacao.setVisible(true);
             this.setVisible(false);

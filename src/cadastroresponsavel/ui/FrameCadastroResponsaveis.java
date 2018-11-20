@@ -5,6 +5,7 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.model.Usuario;
 import javax.swing.*;
 import java.awt.*;
 
@@ -162,7 +163,8 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
     }//GEN-LAST:event_mnSairActionPerformed
 
     private void mnAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAlterarSenhaActionPerformed
-        JPanel panel = new PanelAlterarSenha();
+        Usuario u = new Usuario();
+        JPanel panel = new PanelAlterarSenha(u);
         this.setContentPane(panel); 
         this.setSize(this.getPreferredSize());
     }//GEN-LAST:event_mnAlterarSenhaActionPerformed

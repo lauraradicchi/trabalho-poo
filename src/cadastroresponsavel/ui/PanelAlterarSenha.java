@@ -5,20 +5,36 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.controller.UsuarioController;
 import javax.swing.*;
+import cadastroresponsavel.model.Usuario;
+
 
 /**
  *
  * @author Andre
  */
 public class PanelAlterarSenha extends javax.swing.JPanel {
-
+    private Usuario usuario;
+    private UsuarioController uController;
+    
     /**
      * Creates new form PanelCadastroUsuario
      */
-    public PanelAlterarSenha() {
+    public PanelAlterarSenha(Usuario u) {
         initComponents();
+        usuario=u;
+        tfNome.setText(u.getNome());
+        tfProntuario.setText(u.getProntuario());
     }
+    public void limpar(){
+        tfNome.setText("");
+        tfProntuario.setText("");
+        tfSenha.setText("");
+        tfNovaSenha.setText("");
+        tfSenhaRepetir.setText("");    
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -161,15 +177,35 @@ public class PanelAlterarSenha extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-
+      String senhaAntiga = new String(tfSenha.getPassword());  
+      String senha = new String(tfNovaSenha.getPassword());
+      String repeteSenha= new String(tfSenhaRepetir.getPassword());
+      Boolean confirma = usuario.verificaSenhaNova(senha, repeteSenha);
+      Boolean verifica = usuario.verificaSenhaAntiga(senhaAntiga);
+      usuario.setProntuario(tfProntuario.getText());
+      if(confirma==true && verifica==true){
+          usuario.setSenha(senha);
+          uController.alterarSenha(usuario);
+          JOptionPane.showMessageDialog(lbNome,"Senha alterada com suceeso");
+          limpar();
+          setVisible(false);
+      }else if(confirma==false){
+          JOptionPane.showMessageDialog(lbNome, "A senhas digitadas são diferentes!!!");
+          limpar();
+      }else{
+           JOptionPane.showMessageDialog(lbNome, "A senha está incorreta");
+           limpar();
+        } 
+           
     }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        
+        setVisible(false);
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         // TODO add your handling code here:
+        limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
 
@@ -189,4 +225,7 @@ public class PanelAlterarSenha extends javax.swing.JPanel {
     private javax.swing.JPasswordField tfSenha;
     private javax.swing.JPasswordField tfSenhaRepetir;
     // End of variables declaration//GEN-END:variables
+
+    
+    
 }
