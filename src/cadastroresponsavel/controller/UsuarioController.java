@@ -29,4 +29,10 @@ public class UsuarioController {
     public void inserir (Usuario u){
         dao.inserir(u);
     }
+    public String exibirNomeUsuario(Usuario u){
+        return dao.nomeUsuario(u);
+    }
+    public boolean login (Usuario u){
+        dao.login(u);
+    }
 }

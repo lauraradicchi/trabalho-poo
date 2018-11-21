@@ -32,19 +32,6 @@ public class Usuario implements Comparable<Usuario>{
     public void setProntuario(String prontuario){
         this.prontuario= prontuario;
     }
-    
-    public boolean verificaSenhaNova(String senha, String senhaRepete){
-       if(senha.equals(senhaRepete)){
-           return true;
-       } else return false;
-    }
-    public boolean verificaSenhaAntiga(String senhaAntiga){
-        if(senhaAntiga.equals(this.senha)){
-            return true;
-        }else{
-            return false;
-        }
-    }
 
     @Override
     public int compareTo(Usuario o) {

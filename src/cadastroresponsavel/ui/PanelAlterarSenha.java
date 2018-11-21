@@ -24,7 +24,7 @@ public class PanelAlterarSenha extends javax.swing.JPanel {
     public PanelAlterarSenha(Usuario u) {
         initComponents();
         usuario=u;
-        tfNome.setText(u.getNome());
+        tfNome.setText(ucController.exibirNomeUsuario(u));
         tfProntuario.setText(u.getProntuario());
     }
     public void limpar(){
@@ -177,25 +177,28 @@ public class PanelAlterarSenha extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-      String senhaAntiga = new String(tfSenha.getPassword());  
-      String senha = new String(tfNovaSenha.getPassword());
-      String repeteSenha= new String(tfSenhaRepetir.getPassword());
-      Boolean confirma = usuario.verificaSenhaNova(senha, repeteSenha);
-      Boolean verifica = usuario.verificaSenhaAntiga(senhaAntiga);
-      usuario.setProntuario(tfProntuario.getText());
-      if(confirma==true && verifica==true){
-          usuario.setSenha(senha);
-          uController.alterarSenha(usuario);
-          JOptionPane.showMessageDialog(lbNome,"Senha alterada com suceeso");
-          limpar();
-          setVisible(false);
-      }else if(confirma==false){
-          JOptionPane.showMessageDialog(lbNome, "A senhas digitadas são diferentes!!!");
-          limpar();
-      }else{
-           JOptionPane.showMessageDialog(lbNome, "A senha está incorreta");
-           limpar();
-        } 
+      u.setNome(tfNome.getText());
+      u.setProntuario(tfProntuario.getText());
+      String senhaVelha = new String(tfSenha.getPassword());
+      String senhaNova = new String(tfNovaSenha.getPasword());;
+      String repeteSenha = new String(tfSenhaRepetir.getPassword())
+      u.setSenha(senhaVelha);
+       boolean senhacorreta = ucController.login(u);
+       if(senhacorreta){
+           if(senhaNova.equals(repeteSenha)){
+               u.setSenha(senhaNova);
+               uController.alterarSenha(u);
+               limpar();
+               JOptionPane.showMessageDialog(null,"Senha alterada com suecesso");
+           }else{
+               JOptionPane.showMessageDialog(null,"As senhas digitadas não são iguais");
+
+           }
+       }else{
+           JOptionPane.showMessageDialog(null, "Senha incorreta, tente novamente");
+       }
+
+
            
     }//GEN-LAST:event_btAlterarActionPerformed
 
