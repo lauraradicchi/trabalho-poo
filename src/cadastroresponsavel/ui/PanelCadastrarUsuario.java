@@ -169,6 +169,7 @@ public class PanelCadastrarUsuario extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Cadastro não realizado, tente Novamente");
             limpar();
         }
+       
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed

@@ -20,7 +20,7 @@ public class UsuarioController {
     }
     
     public void alterarSenha(Usuario u){
-        dao.atualizarSenha(u);
+        dao.updateSenha(u);
     }
     public boolean login(Usuario u){
         return dao.login(u);
@@ -30,9 +30,7 @@ public class UsuarioController {
         dao.inserir(u);
     }
     public String exibirNomeUsuario(Usuario u){
-        return dao.nomeUsuario(u);
+        return dao.exibirNomeUsuario(u);
     }
-    public boolean login (Usuario u){
-        dao.login(u);
-    }
+   
 }

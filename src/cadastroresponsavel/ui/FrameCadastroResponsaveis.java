@@ -14,7 +14,6 @@ import java.awt.*;
  * @author Andre
  */
 public class FrameCadastroResponsaveis extends javax.swing.JFrame {
-
     /**
      * Creates new form FrameCadastroResponsaveis
      */

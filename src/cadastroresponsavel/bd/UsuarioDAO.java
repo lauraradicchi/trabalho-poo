@@ -37,7 +37,7 @@ public class UsuarioDAO {
         try {
             con = cf.obterConexao();
             stm = con.prepareStatement("SELECT prontuario,senha FROM usuario where prontuario =?");
-            stm.setString(1, u.getProntuario());,
+            stm.setString(1, u.getProntuario());
             rs = stm.executeQuery();
             while (rs.next()) {
                 user = rs.getString("prontuario");
@@ -51,7 +51,7 @@ public class UsuarioDAO {
         return false;
     }
 
-    public boolean updateSenha(Usuario u) {
+    public void updateSenha(Usuario u) {
         try {
             con = cf.obterConexao();
             stm = con.prepareStatement("UPDATE  usuario SET senha =? where prontuario =?");
@@ -64,16 +64,18 @@ public class UsuarioDAO {
     }
 
     public String exibirNomeUsuario(Usuario u) {
-        String nome = null;
+       String nome="";
         try {
             con = cf.obterConexao();
             stm = con.prepareStatement("SELECT nome from usuario where prontuario=?");
+            stm.setString(1,u.getProntuario());
+            rs=stm.executeQuery();
             while (rs.next()) {
                 nome = rs.getString("nome");
             }
         } catch (SQLException ex) {
             throw new RuntimeException("Exceção: " + ex);
         }
-        rerturn nome;
+        return nome;
     }
 }

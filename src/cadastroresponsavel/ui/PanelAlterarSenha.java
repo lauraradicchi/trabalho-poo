@@ -15,16 +15,16 @@ import cadastroresponsavel.model.Usuario;
  * @author Andre
  */
 public class PanelAlterarSenha extends javax.swing.JPanel {
-    private Usuario usuario;
-    private UsuarioController uController;
+      private Usuario usuario =new Usuario();
+      private UsuarioController uController = new UsuarioController();
     
     /**
      * Creates new form PanelCadastroUsuario
+     * @param u
      */
     public PanelAlterarSenha(Usuario u) {
         initComponents();
-        usuario=u;
-        tfNome.setText(ucController.exibirNomeUsuario(u));
+        tfNome.setText(uController.exibirNomeUsuario(u));
         tfProntuario.setText(u.getProntuario());
     }
     public void limpar(){
@@ -177,17 +177,17 @@ public class PanelAlterarSenha extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-      u.setNome(tfNome.getText());
-      u.setProntuario(tfProntuario.getText());
+      usuario.setNome(tfNome.getText());
+      usuario.setProntuario(tfProntuario.getText());
       String senhaVelha = new String(tfSenha.getPassword());
-      String senhaNova = new String(tfNovaSenha.getPasword());;
-      String repeteSenha = new String(tfSenhaRepetir.getPassword())
-      u.setSenha(senhaVelha);
-       boolean senhacorreta = ucController.login(u);
+      String senhaNova = new String(tfNovaSenha.getPassword());
+      String repeteSenha = new String(tfSenhaRepetir.getPassword());
+      usuario.setSenha(senhaVelha);
+       boolean senhacorreta = uController.login(usuario);
        if(senhacorreta){
            if(senhaNova.equals(repeteSenha)){
-               u.setSenha(senhaNova);
-               uController.alterarSenha(u);
+               usuario.setSenha(senhaNova);
+               uController.alterarSenha(usuario);
                limpar();
                JOptionPane.showMessageDialog(null,"Senha alterada com suecesso");
            }else{
@@ -203,7 +203,7 @@ public class PanelAlterarSenha extends javax.swing.JPanel {
     }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        setVisible(false);
+        setVisible(false);      
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
