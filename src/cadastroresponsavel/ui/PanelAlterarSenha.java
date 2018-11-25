@@ -23,9 +23,10 @@ public class PanelAlterarSenha extends javax.swing.JPanel {
      * @param u
      */
     public PanelAlterarSenha(Usuario u) {
+        usuario=u;
         initComponents();
-        tfNome.setText(uController.exibirNomeUsuario(u));
-        tfProntuario.setText(u.getProntuario());
+        tfNome.setText(uController.exibirNomeUsuario(usuario));
+        tfProntuario.setText(usuario.getProntuario());
     }
     public void limpar(){
         tfNome.setText("");

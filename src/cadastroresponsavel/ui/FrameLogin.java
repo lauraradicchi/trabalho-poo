@@ -140,7 +140,7 @@ public class FrameLogin extends javax.swing.JFrame {
         
         
         if(loginSenhaCorreta==true) {
-            JFrame aplicacao = new FrameCadastroResponsaveis();
+            JFrame aplicacao = new FrameCadastroResponsaveis(usuario);
             aplicacao.setVisible(true);
             this.setVisible(false);
         } else {

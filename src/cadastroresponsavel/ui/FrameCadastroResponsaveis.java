@@ -14,11 +14,13 @@ import java.awt.*;
  * @author Andre
  */
 public class FrameCadastroResponsaveis extends javax.swing.JFrame {
+    Usuario user = new Usuario();
     /**
      * Creates new form FrameCadastroResponsaveis
      */
-    public FrameCadastroResponsaveis() {
+    public FrameCadastroResponsaveis(Usuario u) {
         initComponents();
+        user= u;
     }
 
     /**
@@ -162,8 +164,8 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
     }//GEN-LAST:event_mnSairActionPerformed
 
     private void mnAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAlterarSenhaActionPerformed
-        Usuario u = new Usuario();
-        JPanel panel = new PanelAlterarSenha(u);
+       
+        JPanel panel = new PanelAlterarSenha(user);
         this.setContentPane(panel); 
         this.setSize(this.getPreferredSize());
     }//GEN-LAST:event_mnAlterarSenhaActionPerformed
