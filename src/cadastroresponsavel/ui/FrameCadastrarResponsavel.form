@@ -39,7 +39,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btCancelar" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="lbNome" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="tfNome" min="-2" pref="266" max="-2" attributes="0"/>

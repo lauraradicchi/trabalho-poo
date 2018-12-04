@@ -22,9 +22,12 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
      * Creates new form FrameCadastroResponsavel
      */
     public FrameCadastrarResponsavel(Aluno a) {
-        aluno =a;
-                
         initComponents();
+        aluno =a;
+        
+        
+                
+       
     }
 
     /**
@@ -116,8 +119,7 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
@@ -169,7 +171,7 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
        Responsavel rp= new Responsavel();
-       rp.getAluno().getProntuario();
+       aluno.adcionarResp(rp);
        rp.setNomeResponsavel(tfNome.getText());
        rp.setDataNasc(tfDataNascimento.getText());
        rp.setTelefoneResponsavel(tfTelefone.getText());

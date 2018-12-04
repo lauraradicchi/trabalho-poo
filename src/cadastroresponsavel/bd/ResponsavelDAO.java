@@ -17,7 +17,7 @@ public class ResponsavelDAO{
   public void inserir(Responsavel rp){
     try{  
       con = cf.obterConexao();
-      stm = con.prepareStatement("INSERT INTO responsavel (cod_aluno,nomeResponsavel,dataNascimento,telefoneResponsavel) VALUES (?,?,?)");
+      stm = con.prepareStatement("INSERT INTO responsavel (cod_aluno,nomeResponsavel,dataNascimento,telefoneResponsavel) VALUES (?,?,?,?)");
       stm.setString(1, rp.getAluno().getProntuario());
       stm.setString(2,rp.getNomeResponsavel());
       stm.setString(3,rp.getDataNasc());
