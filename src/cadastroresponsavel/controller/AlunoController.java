@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 package cadastroresponsavel.controller;
+import cadastroresponsavel.bd.AlunoDAO;
+import cadastroresponsavel.model.Aluno;
 
 /**
  *
  * @author Laura
  */
 public class AlunoController {
+    private AlunoDAO dao = new AlunoDAO();
+    public void inserir(Aluno a){
+        dao.inserir(a);
+    }
+    
     
 }

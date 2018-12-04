@@ -5,6 +5,7 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.model.Aluno;
 import javax.swing.*;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.*;
  * @author Andre
  */
 public class PanelAlterarAluno extends javax.swing.JPanel {
-
+    private Aluno alunos = new Aluno();
     /**
      * Creates new form PanelCadastroUsuario
      */
@@ -209,7 +210,7 @@ public class PanelAlterarAluno extends javax.swing.JPanel {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-        JFrame frame = new FrameCadastrarResponsavel();
+        JFrame frame = new FrameCadastrarResponsavel(alunos);
         frame.setVisible(true);
     }//GEN-LAST:event_btAdicionarActionPerformed
 

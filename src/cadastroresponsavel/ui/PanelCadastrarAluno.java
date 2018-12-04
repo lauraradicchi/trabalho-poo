@@ -5,6 +5,8 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.controller.AlunoController;
+import cadastroresponsavel.model.Aluno;
 import javax.swing.*;
 
 /**
@@ -12,14 +14,19 @@ import javax.swing.*;
  * @author Andre
  */
 public class PanelCadastrarAluno extends javax.swing.JPanel {
-
+   private Aluno alunos = new Aluno();
     /**
      * Creates new form PanelCadastroUsuario
      */
     public PanelCadastrarAluno() {
         initComponents();
     }
-
+    public void limpar(){
+        tfNome.setText("");
+        tfProntuario.setText("");
+        tfDataNascimento.setText("");
+        tfTelefone.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -196,6 +203,16 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         
+        AlunoController ac = new AlunoController();
+        alunos.setProntuario(tfProntuario.getText());
+        alunos.setNome(tfNome.getText());
+        alunos.setDataNascimento(tfDataNascimento.getText());
+        alunos.setTelefone(tfTelefone.getText());
+        ac.inserir(alunos);
+        JOptionPane.showMessageDialog(null, "Aluno cadrastado com sucesso");
+        limpar();
+        
+        
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
@@ -204,10 +221,12 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         // TODO add your handling code here:
+        limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-        JFrame frame = new FrameCadastrarResponsavel();
+        
+        JFrame frame = new FrameCadastrarResponsavel(alunos);
         frame.setVisible(true);
     }//GEN-LAST:event_btAdicionarActionPerformed
 

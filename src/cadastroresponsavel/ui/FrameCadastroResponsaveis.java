@@ -83,6 +83,11 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
         mnRelatorios.setText("Relatórios");
 
         mnRelatorioAlunos.setText("Relatório de alunos registrados");
+        mnRelatorioAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnRelatorioAlunosActionPerformed(evt);
+            }
+        });
         mnRelatorios.add(mnRelatorioAlunos);
 
         mnRelatorioResponsaveisAluno.setText("Relatório de responsáveis e alunos");
@@ -181,6 +186,10 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
         this.setContentPane(panel); 
         this.setSize(this.getPreferredSize());
     }//GEN-LAST:event_mnAlterarAlunosActionPerformed
+
+    private void mnRelatorioAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRelatorioAlunosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnRelatorioAlunosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar bmBarraMenu;

@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package cadastroresponsavel.ui;
+
 import cadastroresponsavel.controller.ResponsavelController;
+import cadastroresponsavel.model.Aluno;
 import cadastroresponsavel.model.Responsavel;
 import java.io.PrintStream;
 import javax.swing.JOptionPane;
@@ -14,11 +16,14 @@ import javax.swing.JOptionPane;
  * @author Andre
  */
 public class FrameCadastrarResponsavel extends javax.swing.JFrame {
-
+    private ResponsavelController rc = new ResponsavelController();
+    private Aluno aluno;
     /**
      * Creates new form FrameCadastroResponsavel
      */
-    public FrameCadastrarResponsavel() {
+    public FrameCadastrarResponsavel(Aluno a) {
+        aluno =a;
+                
         initComponents();
     }
 
@@ -164,6 +169,7 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
        Responsavel rp= new Responsavel();
+       rp.getAluno().getProntuario();
        rp.setNomeResponsavel(tfNome.getText());
        rp.setDataNasc(tfDataNascimento.getText());
        rp.setTelefoneResponsavel(tfTelefone.getText());
