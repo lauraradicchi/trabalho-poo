@@ -181,7 +181,7 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
         
         limpar();       
     }//GEN-LAST:event_btInserirActionPerformed
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btInserir;

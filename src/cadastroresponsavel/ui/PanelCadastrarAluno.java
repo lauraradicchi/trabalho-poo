@@ -7,7 +7,10 @@ package cadastroresponsavel.ui;
 
 import cadastroresponsavel.controller.AlunoController;
 import cadastroresponsavel.model.Aluno;
+import cadastroresponsavel.model.Responsavel;
+import java.util.List;        
 import javax.swing.*;
+
 
 /**
  *
@@ -15,6 +18,7 @@ import javax.swing.*;
  */
 public class PanelCadastrarAluno extends javax.swing.JPanel {
    private Aluno alunos = new Aluno();
+   private List <Responsavel> responsavel;
     /**
      * Creates new form PanelCadastroUsuario
      */
@@ -217,6 +221,7 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
@@ -233,7 +238,11 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
     private void btRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoverActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btRemoverActionPerformed
-
+    public void preencheTabelaResp(List responsavel){
+       ResponsavelTabelaModelo respTabela= new ResponsavelTabelaModelo(responsavel);
+       tbResponsaveis.setModel(respTabela);
+       
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;

@@ -4,13 +4,17 @@ import cadastroresponsavel.model.Responsavel;
 import cadastroresponsavel.model.Aluno;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ResponsavelDAO{
     private   ConnectionFactory cf = new ConnectionFactory();
     private  PreparedStatement stm = null;  
     private  Connection con=null;
+    private ResultSet rs = null;  
 
   
     
@@ -27,4 +31,25 @@ public class ResponsavelDAO{
         throw new RuntimeException("Exceção: " + ex);
     }
   }
+  
+  public List<Responsavel> recuperarPais(Aluno a) {
+     List r = new ArrayList();
+     try{
+        con= cf.obterConexao();
+        stm=con.prepareStatement("SELEC nomeResponsavel,telefoneResponsavel from responsavel where cod_aluno=?");
+        stm.setString(1, a.getProntuario());
+        rs= stm.executeQuery();
+        while(rs.next()){
+            Responsavel rp= new Responsavel();
+            rp.setAluno(a);
+            rp.setNomeResponsavel("nomeResponsavel");
+            rp.setTelefoneResponsavel("telefoneResponsavel");
+            r.add(rp);
+        }
+        
+    }catch(SQLException ex){
+        throw new RuntimeException("Exceção: " + ex);
+    }
+     return r;
+  }   
 }

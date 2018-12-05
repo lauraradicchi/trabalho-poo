@@ -1,7 +1,9 @@
 package cadastroresponsavel.controller;
 
 import cadastroresponsavel.bd.ResponsavelDAO;
+import cadastroresponsavel.model.Aluno;
 import cadastroresponsavel.model.Responsavel;
+import java.util.List;
 
 
 public class ResponsavelController{
@@ -13,5 +15,9 @@ public class ResponsavelController{
   
     public void cadastrarResponsavel(Responsavel rp){
         dao.inserir(rp);
-  }
+    }
+    
+    public List<Responsavel> recuperar(Aluno a){
+        return dao.recuperarPais(a);
+    }
 }
