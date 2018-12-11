@@ -30,7 +30,7 @@ public class AlunoDAO {
             stm=con.prepareStatement("INSERT INTO aluno (prontuario,nome,dataNasc,telefone) values(?,?,?,?)");
             stm.setString(1, a.getProntuario());
             stm.setString(2, a.getNome());
-            stm.setString(3,a.getDataNascimento());
+            stm.setString(3,a.getDataNasc());
             stm.setString(4, a.getTelefone());
             stm.executeUpdate();
         }catch(SQLException ex){
