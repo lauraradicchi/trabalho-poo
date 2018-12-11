@@ -238,7 +238,7 @@ public class PanelVisualizarAlunos extends javax.swing.JPanel {
       int posicao = alunos.indexOf(mockup);
        if(posicao < 0) {
             JOptionPane.showMessageDialog(this, 
-                    "Não foi encontrado contato com este nome.");
+                    "Não foi encontrado aluno com este prontuario.");
         } else {
              tbAlunos.setRowSelectionInterval(posicao, posicao);
        }

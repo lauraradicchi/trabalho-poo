@@ -28,7 +28,7 @@ public class PanelAlterarAluno extends javax.swing.JPanel {
         alunos= a;
         tfProntuario.setText(a.getProntuario());
         tfNome.setText(a.getNome());
-        tfDataNascimento.setText(a.getDataNascimento());
+        tfDataNascimento.setText(a.getDataNasc());
         TableModel tabela = new ResponsavelTabelaModelo(alunos.getResponsavel());
         tbResponsaveis.setModel(tabela);
     }
@@ -218,7 +218,7 @@ public class PanelAlterarAluno extends javax.swing.JPanel {
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
         // TODO add your handling code here:
         alunos.setNome(tfNome.getText());
-        alunos.setDataNascimento(tfDataNascimento.getText());
+        alunos.setDataNasc(tfDataNascimento.getText());
         alunos.setTelefone(tfTelefone.getText());
         AlunoController ac= new AlunoController();
         ac.alterar(alunos);

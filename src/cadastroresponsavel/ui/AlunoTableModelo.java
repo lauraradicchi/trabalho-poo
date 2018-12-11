@@ -6,6 +6,7 @@
 package cadastroresponsavel.ui;
 
 import cadastroresponsavel.model.Aluno;
+import cadastroresponsavel.model.Responsavel;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
@@ -20,6 +21,7 @@ public class AlunoTableModelo  extends AbstractTableModel
     implements Observer {
     
     private List<Aluno> alunos;
+    private List<Responsavel> responsavel;
     private String[] colunas = {"Prontuario", "Nome", "Responsável"};
     
     public AlunoTableModelo(List<Aluno> a) {

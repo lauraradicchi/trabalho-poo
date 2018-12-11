@@ -17,9 +17,6 @@ public class ResponsavelController{
         dao.inserir(rp);
     }
     
-    public List<Responsavel> recuperar(Aluno a){
-        return dao.recuperarPais(a);
-    }
     
     public void removerResponsavel(Responsavel r){
         dao.remover(r);

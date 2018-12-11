@@ -25,8 +25,10 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
      */
     public PanelCadastrarAluno() {
         initComponents();
+       
+       
         ResponsavelController rc = new ResponsavelController();
-        responsavel= rc.recuperar(alunos);
+        //responsavel= rc.recuperar(alunos);
         preencheTabelaResp(responsavel);
         
     }
@@ -215,7 +217,7 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
         AlunoController ac = new AlunoController();
         alunos.setProntuario(tfProntuario.getText());
         alunos.setNome(tfNome.getText());
-        alunos.setDataNascimento(tfDataNascimento.getText());
+        alunos.setDataNasc(tfDataNascimento.getText());
         alunos.setTelefone(tfTelefone.getText());
         ac.inserir(alunos);
         JOptionPane.showMessageDialog(null, "Aluno cadrastado com sucesso");

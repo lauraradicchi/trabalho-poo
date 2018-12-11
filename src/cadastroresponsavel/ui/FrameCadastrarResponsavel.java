@@ -172,11 +172,10 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
        Responsavel rp= new Responsavel();
-       aluno.adcionarResp(rp);
        rp.setNomeResponsavel(tfNome.getText());
        rp.setDataNasc(tfDataNascimento.getText());
        rp.setTelefoneResponsavel(tfTelefone.getText());
-       ResponsavelController rc = new ResponsavelController();
+       aluno.adcionarResp(rp);
        rc.cadastrarResponsavel(rp);
       JOptionPane.showMessageDialog(rootPane,"Responsável cadastrado com sucesso");
         

@@ -36,7 +36,7 @@ public class ResponsavelDAO{
      List<Responsavel> r = new ArrayList();
      try{
         con= cf.obterConexao();
-        stm=con.prepareStatement("SELECT nomeResponsavel,telefoneResponsavel from responsavel where cod_aluno=?");
+        stm=con.prepareStatement("SELECT * from responsavel where cod_aluno=?");
         stm.setString(1, a.getProntuario());
         rs= stm.executeQuery();
         while(rs.next()){

@@ -57,23 +57,6 @@ public class ResponsavelTabelaModelo  extends AbstractTableModel
         return true;
     }
     
-     @Override
-     public void setValueAt(Object dado, int rowIndex, int columnIndex) {
-        Responsavel rp = responsavel.get(rowIndex);
-        switch(columnIndex){
-            case 0:
-                String nome = (String)dado;
-                rp.setNomeResponsavel(nome);
-            break;
-            case 1:
-                String telefone = (String)dado;
-                rp.setTelefoneResponsavel(telefone);
-            break;    
-        }
-        ResponsavelController rc = new ResponsavelController();
-        rc.cadastrarResponsavel(rp);
-     }
-
     @Override
     public void update(Observable o, Object arg) {
         

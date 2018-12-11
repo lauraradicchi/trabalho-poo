@@ -190,7 +190,8 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
     }//GEN-LAST:event_mnAlterarAlunosActionPerformed
 
     private void mnRelatorioAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRelatorioAlunosActionPerformed
-        // TODO add your handling code here:
+        RelatorioHelper relatorio = new RelatorioHelper();
+        relatorio.gerarRelatorioAlunos();
     }//GEN-LAST:event_mnRelatorioAlunosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

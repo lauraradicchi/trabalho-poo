@@ -47,6 +47,8 @@ public class AlunoDAO {
                 Aluno aluno = new Aluno();
                 aluno.setProntuario(rs.getString("prontuario"));
                 aluno.setNome(rs.getString("nome"));
+                aluno.setDataNasc(rs.getString("dataNasc"));
+                aluno.setTelefone(rs.getString("telefone"));
                 List responsavel = rdao.recuperarPais(aluno);
                 aluno.setResponsavel(responsavel);
                 a.add(aluno);
@@ -75,7 +77,7 @@ public class AlunoDAO {
             con=cf.obterConexao();
             stm=con.prepareStatement("UPDATE aluno set nome=?, dataNasc=?, telefone=? where prontuario=?");
             stm.setString(1, a.getNome());
-            stm.setString(2, a.getDataNascimento());
+            stm.setString(2, a.getDataNasc());
             stm.setString(3, a.getTelefone());
             stm.setString(3, a.getProntuario());
         }catch(SQLException ex){

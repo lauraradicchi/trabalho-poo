@@ -16,7 +16,7 @@ import java.util.Observable;
 public class Aluno extends Observable
     implements Comparable<Aluno> {
     private String nome;
-    private String dataNascimento;
+    private String dataNasc;
     private String telefone;
     private String prontuario;
     
@@ -48,12 +48,12 @@ public class Aluno extends Observable
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
+    public String getDataNasc() {
+        return dataNasc;
     }
 
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
     }
 
     public String getTelefone() {
@@ -77,8 +77,7 @@ public class Aluno extends Observable
     public boolean equals(Object o) {
         if(o instanceof Aluno) {
             Aluno  aluno = (Aluno) o;
-            return aluno.getResponsavel()
-              .equals(this.getResponsavel());
+            return this.getProntuario().equalsIgnoreCase(aluno.getProntuario());
         }
         return false;
     }

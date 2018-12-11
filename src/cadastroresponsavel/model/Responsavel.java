@@ -7,10 +7,11 @@ public class Responsavel{
     public Responsavel(){
 
     }
+    private String cod_aluno;
     private String nomeResponsavel;
     private String dataNasc; 
     private String telefoneResponsavel;
-    private String tipoResponsavel;
+   
     private Aluno aluno;
 
     public Aluno getAluno() {
@@ -21,16 +22,6 @@ public class Responsavel{
         this.aluno = aluno;
     }
     
-
-    public String getTipoResponsavel() {
-        return tipoResponsavel;
-    }
-
-    public void setTipoResponsavel(String tipoResponsavel) {
-        this.tipoResponsavel = tipoResponsavel;
-    }
-   
-
     public String getNomeResponsavel() {
         return nomeResponsavel;
     }
@@ -54,6 +45,15 @@ public class Responsavel{
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
+
+    public String getCod_aluno() {
+        return cod_aluno;
+    }
+
+    public void setCod_aluno(String cod_aluno) {
+        this.cod_aluno = cod_aluno;
+    }
+    
 
     
 }
