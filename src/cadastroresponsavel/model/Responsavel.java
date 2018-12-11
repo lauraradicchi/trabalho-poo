@@ -3,7 +3,7 @@ package cadastroresponsavel.model;
 
 
 
-public class Responsavel {
+public class Responsavel{
     public Responsavel(){
 
     }
@@ -54,6 +54,7 @@ public class Responsavel {
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
     }
+
     
 }
     

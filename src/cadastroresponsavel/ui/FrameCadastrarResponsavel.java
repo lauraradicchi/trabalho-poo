@@ -26,6 +26,7 @@ public class FrameCadastrarResponsavel extends javax.swing.JFrame {
         aluno =a;
         
         
+        
                 
        
     }

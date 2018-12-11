@@ -5,17 +5,29 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.controller.AlunoController;
+import cadastroresponsavel.model.Aluno;
+import cadastroresponsavel.model.CompararAlunoProntuario;
+import java.util.Collections;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andre
  */
 public class PanelVisualizarAlunos extends javax.swing.JPanel {
-
+    private List<Aluno> alunos;
+    
     /**
      * Creates new form PanelVisualizarAlunos
      */
     public PanelVisualizarAlunos() {
         initComponents();
+        AlunoController ac = new AlunoController();
+        alunos = ac.visualizarAlunos();
+        
+        this.preencheTabela(alunos);
     }
 
     /**
@@ -182,29 +194,59 @@ public class PanelVisualizarAlunos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOrdenarProntuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOrdenarProntuarioActionPerformed
-
+     AlunoController ac = new AlunoController();
+     alunos=ac.visualizarAlunos();
+     alunos.sort(new CompararAlunoProntuario());
+     preencheTabela(alunos);
     }//GEN-LAST:event_btOrdenarProntuarioActionPerformed
 
     private void btOrdenarResponsavelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOrdenarResponsavelActionPerformed
-
+      AlunoController ac = new AlunoController();
+      alunos=ac.visualizarAlunos();
+      Collections.sort(alunos);
+      preencheTabela(alunos);
     }//GEN-LAST:event_btOrdenarResponsavelActionPerformed
 
     private void btOrdenarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOrdenarNomeActionPerformed
-
+     AlunoController ac = new AlunoController();
+     alunos=ac.visualizarAlunos();
+     Collections.sort(alunos);
+     preencheTabela(alunos);
     }//GEN-LAST:event_btOrdenarNomeActionPerformed
 
     private void btAlterarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarAlunoActionPerformed
-
+        int linha = tbAlunos.getSelectedRow();
+        Aluno a = alunos.get(linha);
+        PanelAlterarAluno pa = new PanelAlterarAluno(a);
+        pa.setVisible(true);
     }//GEN-LAST:event_btAlterarAlunoActionPerformed
 
     private void btRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoverActionPerformed
-
+        int linha = tbAlunos.getSelectedRow();
+        Aluno a = alunos.get(linha);
+        AlunoController ac= new AlunoController();
+        ac.remover(a);
+        alunos.remove(a);
+        JOptionPane.showMessageDialog(this, "Aluno removido com sucesso!");
+        preencheTabela(alunos);
     }//GEN-LAST:event_btRemoverActionPerformed
 
     private void btProcurarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProcurarAlunoActionPerformed
-
+      String prontuario = tfProntuarioProcurar.getText();
+      Aluno mockup = new Aluno();
+      mockup.setProntuario(prontuario);
+      int posicao = alunos.indexOf(mockup);
+       if(posicao < 0) {
+            JOptionPane.showMessageDialog(this, 
+                    "Não foi encontrado contato com este nome.");
+        } else {
+             tbAlunos.setRowSelectionInterval(posicao, posicao);
+       }
     }//GEN-LAST:event_btProcurarAlunoActionPerformed
-
+    private void preencheTabela(List alunos){
+        AlunoTableModelo tabela = new AlunoTableModelo(alunos);
+        tbAlunos.setModel(tabela);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterarAluno;

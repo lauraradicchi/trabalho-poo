@@ -73,7 +73,15 @@ public class Aluno extends Observable
     public int compareTo(Aluno a1) {
         return this.getNome().compareTo(a1.getNome());
     }
-    
+     @Override
+    public boolean equals(Object o) {
+        if(o instanceof Aluno) {
+            Aluno  aluno = (Aluno) o;
+            return aluno.getResponsavel()
+              .equals(this.getResponsavel());
+        }
+        return false;
+    }
   
     
 }

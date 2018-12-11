@@ -33,10 +33,10 @@ public class ResponsavelDAO{
   }
   
   public List<Responsavel> recuperarPais(Aluno a) {
-     List r = new ArrayList();
+     List<Responsavel> r = new ArrayList();
      try{
         con= cf.obterConexao();
-        stm=con.prepareStatement("SELEC nomeResponsavel,telefoneResponsavel from responsavel where cod_aluno=?");
+        stm=con.prepareStatement("SELECT nomeResponsavel,telefoneResponsavel from responsavel where cod_aluno=?");
         stm.setString(1, a.getProntuario());
         rs= stm.executeQuery();
         while(rs.next()){
@@ -51,5 +51,17 @@ public class ResponsavelDAO{
         throw new RuntimeException("Exceção: " + ex);
     }
      return r;
-  }   
+  }
+   public void remover (Responsavel r){
+       try{
+          con= cf.obterConexao();
+          stm=con.prepareStatement("DELETE FROM responsavel where cod_aluno=?");
+          stm.setString(1, r.getAluno().getProntuario());
+          stm.executeUpdate();
+           
+        }catch(SQLException ex){
+            throw new RuntimeException("Exceção: " + ex);
+        }
+    }
+  
 }

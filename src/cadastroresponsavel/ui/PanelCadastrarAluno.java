@@ -6,6 +6,7 @@
 package cadastroresponsavel.ui;
 
 import cadastroresponsavel.controller.AlunoController;
+import cadastroresponsavel.controller.ResponsavelController;
 import cadastroresponsavel.model.Aluno;
 import cadastroresponsavel.model.Responsavel;
 import java.util.List;        
@@ -24,6 +25,10 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
      */
     public PanelCadastrarAluno() {
         initComponents();
+        ResponsavelController rc = new ResponsavelController();
+        responsavel= rc.recuperar(alunos);
+        preencheTabelaResp(responsavel);
+        
     }
     public void limpar(){
         tfNome.setText("");
@@ -236,10 +241,17 @@ public class PanelCadastrarAluno extends javax.swing.JPanel {
     }//GEN-LAST:event_btAdicionarActionPerformed
 
     private void btRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoverActionPerformed
-        // TODO add your handling code here:
+        int linha = tbResponsaveis.getSelectedRow();
+        Responsavel r = responsavel.get(linha);
+        ResponsavelController rc = new ResponsavelController();
+        rc.removerResponsavel(r);
+        responsavel.remove(r);
+        JOptionPane.showMessageDialog(null, "Responsavel Removido com Sucesso");
+        
     }//GEN-LAST:event_btRemoverActionPerformed
     public void preencheTabelaResp(List responsavel){
-       ResponsavelTabelaModelo respTabela= new ResponsavelTabelaModelo(responsavel);
+       ResponsavelTabelaModelo respTabela= new ResponsavelTabelaModelo(alunos.getResponsavel());
+       
        tbResponsaveis.setModel(respTabela);
        
     }

@@ -5,20 +5,38 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.controller.AlunoController;
+import cadastroresponsavel.controller.ResponsavelController;
 import cadastroresponsavel.model.Aluno;
+import cadastroresponsavel.model.Responsavel;
+import java.util.List;
 import javax.swing.*;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author Andre
  */
 public class PanelAlterarAluno extends javax.swing.JPanel {
-    private Aluno alunos = new Aluno();
+    private Aluno alunos;
+     private List <Responsavel> responsavel;
     /**
      * Creates new form PanelCadastroUsuario
      */
-    public PanelAlterarAluno() {
+    public PanelAlterarAluno(Aluno a) {
         initComponents();
+        alunos= a;
+        tfProntuario.setText(a.getProntuario());
+        tfNome.setText(a.getNome());
+        tfDataNascimento.setText(a.getDataNascimento());
+        TableModel tabela = new ResponsavelTabelaModelo(alunos.getResponsavel());
+        tbResponsaveis.setModel(tabela);
+    }
+     public void limpar(){
+        tfNome.setText("");
+        tfProntuario.setText("");
+        tfDataNascimento.setText("");
+        tfTelefone.setText("");
     }
 
     /**
@@ -199,14 +217,21 @@ public class PanelAlterarAluno extends javax.swing.JPanel {
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
         // TODO add your handling code here:
+        alunos.setNome(tfNome.getText());
+        alunos.setDataNascimento(tfDataNascimento.getText());
+        alunos.setTelefone(tfTelefone.getText());
+        AlunoController ac= new AlunoController();
+        ac.alterar(alunos);
+        JOptionPane.showMessageDialog(this, "Aluno alterado com sucesso");
+        limpar();
     }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
-        // TODO add your handling code here:
+       limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
@@ -215,9 +240,15 @@ public class PanelAlterarAluno extends javax.swing.JPanel {
     }//GEN-LAST:event_btAdicionarActionPerformed
 
     private void btRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemoverActionPerformed
-        // TODO add your handling code here:
+        int linha = tbResponsaveis.getSelectedRow();
+        Responsavel r = responsavel.get(linha);
+        ResponsavelController rc = new ResponsavelController();
+        rc.removerResponsavel(r);
+        responsavel.remove(r);
+        JOptionPane.showMessageDialog(null, "Responsavel Removido com Sucesso");
+        
     }//GEN-LAST:event_btRemoverActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;

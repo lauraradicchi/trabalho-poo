@@ -5,6 +5,7 @@
  */
 package cadastroresponsavel.ui;
 
+import cadastroresponsavel.model.Aluno;
 import cadastroresponsavel.model.Usuario;
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ import java.awt.*;
  */
 public class FrameCadastroResponsaveis extends javax.swing.JFrame {
     Usuario user = new Usuario();
+    Aluno a = new Aluno();
     /**
      * Creates new form FrameCadastroResponsaveis
      */
@@ -182,7 +184,7 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
     }//GEN-LAST:event_mnVisualizarAlunosActionPerformed
 
     private void mnAlterarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAlterarAlunosActionPerformed
-        JPanel panel = new PanelAlterarAluno();
+        JPanel panel = new PanelAlterarAluno(a);
         this.setContentPane(panel); 
         this.setSize(this.getPreferredSize());
     }//GEN-LAST:event_mnAlterarAlunosActionPerformed
