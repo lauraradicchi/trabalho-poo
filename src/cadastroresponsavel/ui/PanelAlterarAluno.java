@@ -18,7 +18,7 @@ import javax.swing.table.TableModel;
  * @author Andre
  */
 public class PanelAlterarAluno extends javax.swing.JPanel {
-    private Aluno alunos;
+    private Aluno alunos = new Aluno();
      private List <Responsavel> responsavel;
     /**
      * Creates new form PanelCadastroUsuario

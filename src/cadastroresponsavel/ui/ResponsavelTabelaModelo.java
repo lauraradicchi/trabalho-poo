@@ -59,7 +59,7 @@ public class ResponsavelTabelaModelo  extends AbstractTableModel
     
     @Override
     public void update(Observable o, Object arg) {
-        
+        this.fireTableDataChanged();
     }
     
 }

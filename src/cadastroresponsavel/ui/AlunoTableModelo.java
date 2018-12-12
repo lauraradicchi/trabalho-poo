@@ -71,4 +71,9 @@ public class AlunoTableModelo  extends AbstractTableModel
     public void update(Observable o, Object arg) {
         this.fireTableDataChanged();
     }
+      @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return true;
+    }
+    
 }

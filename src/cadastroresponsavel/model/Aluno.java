@@ -46,14 +46,19 @@ public class Aluno extends Observable
 
     public void setNome(String nome) {
         this.nome = nome;
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public String getDataNasc() {
         return dataNasc;
+        
     }
 
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
+         this.setChanged();
+        this.notifyObservers();
     }
 
     public String getTelefone() {
@@ -62,6 +67,8 @@ public class Aluno extends Observable
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+         this.setChanged();
+        this.notifyObservers();
     }
     
     public void adcionarResp(Responsavel rp){

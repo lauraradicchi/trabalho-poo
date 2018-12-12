@@ -16,13 +16,15 @@ import java.awt.*;
  */
 public class FrameCadastroResponsaveis extends javax.swing.JFrame {
     Usuario user = new Usuario();
-    Aluno a = new Aluno();
+    Aluno aluno;
+    
     /**
      * Creates new form FrameCadastroResponsaveis
      */
     public FrameCadastroResponsaveis(Usuario u) {
         initComponents();
         user= u;
+        
     }
 
     /**
@@ -93,6 +95,11 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
         mnRelatorios.add(mnRelatorioAlunos);
 
         mnRelatorioResponsaveisAluno.setText("Relatório de responsáveis e alunos");
+        mnRelatorioResponsaveisAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnRelatorioResponsaveisAlunoActionPerformed(evt);
+            }
+        });
         mnRelatorios.add(mnRelatorioResponsaveisAluno);
 
         bmBarraMenu.add(mnRelatorios);
@@ -184,7 +191,7 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
     }//GEN-LAST:event_mnVisualizarAlunosActionPerformed
 
     private void mnAlterarAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAlterarAlunosActionPerformed
-        JPanel panel = new PanelAlterarAluno(a);
+        JPanel panel = new PanelAlterarAluno(aluno);
         this.setContentPane(panel); 
         this.setSize(this.getPreferredSize());
     }//GEN-LAST:event_mnAlterarAlunosActionPerformed
@@ -193,6 +200,11 @@ public class FrameCadastroResponsaveis extends javax.swing.JFrame {
         RelatorioHelper relatorio = new RelatorioHelper();
         relatorio.gerarRelatorioAlunos();
     }//GEN-LAST:event_mnRelatorioAlunosActionPerformed
+
+    private void mnRelatorioResponsaveisAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRelatorioResponsaveisAlunoActionPerformed
+         RelatorioHelper relatorio = new RelatorioHelper();
+        relatorio.gerarRelatorioResponsavel();
+    }//GEN-LAST:event_mnRelatorioResponsaveisAlunoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar bmBarraMenu;
